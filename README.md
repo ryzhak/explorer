@@ -63,3 +63,19 @@ Then visit http://localhost:8000 in your browser of choice after you npm start t
 - Realtime latest blocks and recent transactions
 
 - Other random blockchain info stats were added
+
+## Docker commands
+
+### Build image
+```
+sudo docker image build --no-cache -t ticketscloud/blockchain-explorer:latest ./devops
+```
+### Run image
+```
+sudo docker container run -i -t -p 1000:8000 --rm -e GETH_HTTP_PROVIDER_ADDRESS='https://rpc.site.com' ticketscloud/blockchain-explorer:latest
+```
+### Push image to docker hub
+```
+sudo docker login
+sudo docker image push ticketscloud/blockchain-explorer:latest
+```
