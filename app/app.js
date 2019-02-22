@@ -17,6 +17,7 @@ var geth_command	= "geth --rpc --rpcaddr "+ GETH_HOSTNAME + " --rpcport " + GETH
 ////////////////////////////////////////////////////
 //end AltSheets changes
 
+var GETH_HTTP_PROVIDER_ADDRESS = "{GETH_HTTP_PROVIDER_ADDRESS}";
 
 'use strict';
 
@@ -94,7 +95,7 @@ angular.module('ethExplorer', ['ngRoute','ui.bootstrap','filters','ngSanitize'])
 
         // begin AltSheets changes
         var web3 = new Web3();
-	web3.setProvider(new web3.providers.HttpProvider("http://"+GETH_HOSTNAME+":"+GETH_RPCPORT));
+	web3.setProvider(new web3.providers.HttpProvider(GETH_HTTP_PROVIDER_ADDRESS));
 	// end AltSheets changes
 
         $rootScope.web3=web3;
