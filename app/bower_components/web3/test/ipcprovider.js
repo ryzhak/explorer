@@ -1,13 +1,15 @@
 var chai = require('chai');
 var assert = chai.assert;
 var SandboxedModule = require('sandboxed-module');
-var net = require('./helpers/FakeIpcRequest')
+var FakeIpcRequest = require('./helpers/FakeIpcRequest')
+var net = new FakeIpcRequest();
 
 SandboxedModule.registerBuiltInSourceTransformer('istanbul');
 var IpcProvider = SandboxedModule.require('../lib/web3/ipcprovider', {
     requires: {
         'bignumber.js': require('bignumber.js'), 
-    }
+    },
+    singleOnly: true
 });
 
 describe('lib/web3/ipcprovider', function () {

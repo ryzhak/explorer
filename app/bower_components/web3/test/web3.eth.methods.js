@@ -1,6 +1,7 @@
 var chai = require('chai');
 var assert = chai.assert; 
-var web3 = require('../index.js');
+var Web3 = require('../index.js');
+var web3 = new Web3();
 var u = require('./helpers/test.utils.js');
 
 describe('web3.eth', function() {
@@ -29,6 +30,7 @@ describe('web3.eth', function() {
         u.propertyExists(web3.eth, 'accounts');
         u.propertyExists(web3.eth, 'defaultBlock');
         u.propertyExists(web3.eth, 'blockNumber');
+        u.propertyExists(web3.eth, 'protocolVersion');
     });
 });
 

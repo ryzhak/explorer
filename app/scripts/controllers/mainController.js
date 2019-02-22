@@ -170,11 +170,15 @@ angular.module('ethExplorer')
 
 
         function getHashrate()	{
+          $scope.hashrate = 1;
+          // TODO: fix CORS policy
+          /*
           $.getJSON("https://etherchain.org/api/miningEstimator", function(json) {
             var hr = json.data[0].hashRate;
             $scope.hashrate = hr;
-       	});
-      }
+           });
+          */
+        }
 
         function getETHRates() {
           $.getJSON("https://api.coinmarketcap.com/v1/ticker/ethereum/", function(json) {
