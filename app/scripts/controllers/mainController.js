@@ -10,16 +10,17 @@ angular.module('ethExplorer')
         updateStats();
         getHashrate();
 
-        web3.eth.filter("latest", function(error, result){
-          if (!error) {
-            getETHRates();
-            updateBlockList();
-            updateTXList();
-            updateStats();
-            getHashrate();
-            $scope.$apply();
-          }
-        });
+        // TODO: fix, this block freezes ui because of frequent updates
+        // web3.eth.filter("latest", function(error, result){
+        //   if (!error) {
+        //     getETHRates();
+        //     updateBlockList();
+        //     updateTXList();
+        //     updateStats();
+        //     getHashrate();
+        //     $scope.$apply();
+        //   }
+        // });
 
         $scope.processRequest= function(){
             var requestStr = $scope.ethRequest;
